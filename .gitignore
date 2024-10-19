@@ -1,1 +1,4 @@
 .idea
+# ignore logs files
+/logs/*
+/test/logs/*
