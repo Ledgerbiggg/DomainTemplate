@@ -14,3 +14,7 @@
 [2024-10-19 14:24:34] [INFO]: service init success
 [2024-10-19 14:25:02] [INFO]: init console logger
 [2024-10-19 14:25:02] [INFO]: service init success
+[2024-10-19 14:25:48] [INFO]: init console logger
+[2024-10-19 14:25:48] [INFO]: service init success
+[2024-10-19 14:26:17] [INFO]: init console logger
+[2024-10-19 14:26:17] [INFO]: service init success
