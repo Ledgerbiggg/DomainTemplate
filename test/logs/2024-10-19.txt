@@ -2,3 +2,11 @@
 [2024-10-19 14:11:22] [INFO]: service init success
 [2024-10-19 14:11:56] [INFO]: init console logger
 [2024-10-19 14:11:56] [INFO]: service init success
+[2024-10-19 14:20:49] [INFO]: init console logger
+[2024-10-19 14:20:50] [INFO]: service init success
+[2024-10-19 14:21:42] [INFO]: init console logger
+[2024-10-19 14:21:42] [INFO]: service init success
+[2024-10-19 14:21:57] [INFO]: init console logger
+[2024-10-19 14:21:57] [INFO]: service init success
+[2024-10-19 14:22:13] [INFO]: init console logger
+[2024-10-19 14:22:13] [INFO]: service init success
