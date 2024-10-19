@@ -6,9 +6,12 @@ import (
 	"DomainTemplate/src/services"
 	"context"
 	"go.uber.org/fx"
+	"os"
+	"testing"
 )
 
-func Inject() {
+// TestMain executes before all tests
+func TestMain(m *testing.M) {
 	app := fx.New(
 		config.Module,
 		logs.Module,
@@ -18,4 +21,6 @@ func Inject() {
 	if err != nil {
 		panic(err)
 	}
+	code := m.Run()
+	os.Exit(code)
 }
