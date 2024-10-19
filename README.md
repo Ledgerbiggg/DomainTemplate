@@ -1,0 +1,1 @@
+### The template file for the Golang project is used to quickly create projects that use dependency injection (FX) and their testing files
