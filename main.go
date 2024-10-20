@@ -13,5 +13,6 @@ func main() {
 		logs.Module,
 		services.Module,
 	)
+	// Run the application
 	app.Run()
 }
