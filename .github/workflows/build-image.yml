@@ -1,0 +1,42 @@
+name: Build and Push Docker Image to Aliyun
+
+on:
+  push:
+    branches:
+      - m
+  pull_request:
+    branches:
+      - m
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 1: Log in to Aliyun Docker registry
+      - name: Log in to Aliyun Docker Registry
+        run: |
+          echo "${{ secrets.ALIYUN_DOCKER_PASSWORD }}" | docker login --username="${{ secrets.ALIYUN_DOCKER_USERNAME }}" --password-stdin registry.cn-hangzhou.aliyuncs.com
+
+      # Step 2: Read the version from the .VERSION file
+      - name: Read version from .VERSION file
+        id: get_version
+        run: |
+          VERSION=$(cat .VERSION)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "The version from .VERSION file is: $VERSION"
+
+      # Step 3: Build the Docker image using the version from the .VERSION file
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{ github.event.repository.name }}:${VERSION} .
+
+      # Step 4: Tag the image with the registry address and version
+      - name: Tag Docker Image And Push
+        run: |
+          REPO_NAME=${{ github.event.repository.name }}
+          docker tag ${REPO_NAME}:${VERSION} registry.cn-hangzhou.aliyuncs.com/ledger_github/${REPO_NAME}:${VERSION}
+          docker push registry.cn-hangzhou.aliyuncs.com/ledger_github/${REPO_NAME}:${VERSION}

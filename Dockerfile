@@ -22,6 +22,8 @@ FROM alpine AS prod
 COPY --from=builder /go/src/main /main
 # Copy the configuration file from the builder image
 COPY --from=builder /go/src/config.yaml ./config.yaml
+# Copy the logs file from the builder image
+COPY --from=builder /go/src/logs ./logs
 
 # Set the command to execute the binary
 CMD ["/main"]
