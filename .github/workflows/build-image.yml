@@ -3,10 +3,10 @@ name: Build and Push Docker Image to Aliyun
 on:
   push:
     branches:
-      - main
+      - m
   pull_request:
     branches:
-      - main
+      - m
 
 jobs:
   build:
@@ -37,8 +37,7 @@ jobs:
       # Step 4: Check if the Docker image already exists
       - name: Check if Docker Image Version Exists
         run: |
-          set -e
-          IMAGE=registry.cn-hangzhou.aliyuncs.com/ledger_github/${{ github.event.repository.name }}:${{ VERSION }}
+          IMAGE=registry.cn-hangzhou.aliyuncs.com/ledger_github/${{ github.event.repository.name }}:${VERSION}
           if docker manifest inspect $IMAGE > /dev/null 2>&1; then
             echo "Error: Docker image $IMAGE already exists. Exiting."
             exit 1
