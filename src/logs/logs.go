@@ -11,7 +11,7 @@ import (
 
 // ConsoleLogger LOGGER
 type ConsoleLogger struct {
-	logLevel int // 用于控制输出的日志级别
+	logLevel int // log level
 }
 
 // LOG_LEVEL

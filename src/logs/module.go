@@ -4,9 +4,9 @@ import (
 	"go.uber.org/fx"
 )
 
-var Module = fx.Module("logs",
+var Module = fx.Module("log",
 	fx.Provide(NewConsoleLogger),
-	fx.Invoke(func(c *ConsoleLogger) {
-		c.Info("init console logger")
+	fx.Invoke(func(l *ConsoleLogger) {
+		l.Info("init console logger")
 	}),
 )

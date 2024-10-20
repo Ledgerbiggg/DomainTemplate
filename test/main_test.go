@@ -10,13 +10,20 @@ import (
 	"testing"
 )
 
+var (
+	gConfig *config.GConfig
+	logger  *logs.ConsoleLogger
+)
+
 // TestMain executes before all tests
 func TestMain(m *testing.M) {
 	app := fx.New(
 		config.Module,
 		logs.Module,
 		services.Module,
+		fx.Populate(&gConfig, &logger),
 	)
+
 	err := app.Start(context.Background())
 	if err != nil {
 		panic(err)

@@ -7,8 +7,6 @@ import (
 	"strings"
 )
 
-var config *GConfig
-
 // GConfig global config
 type GConfig struct {
 	Mod      string `yaml:"mod"`
@@ -16,6 +14,7 @@ type GConfig struct {
 }
 
 func LoadConfig() *GConfig {
+	var config *GConfig
 	vconfig := viper.New()
 
 	vconfig.AutomaticEnv()

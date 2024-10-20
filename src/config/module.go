@@ -7,5 +7,6 @@ import (
 var Module = fx.Module("config",
 	fx.Provide(LoadConfig),
 	fx.Invoke(func(c *GConfig) {
+
 	}),
 )
